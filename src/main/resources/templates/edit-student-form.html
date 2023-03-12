@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Student Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-3">
+    <h3>Update Student Data</h3>
+    <hr/>
+    <form th:action="@{'/api/student/editStudent/'+${student.id}}" th:object="${student}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control col-6 mb-4" id="name" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control col-6 mb-4" id="gender" th:field="*{gender}" required>
+                <option value="" disabled selected>Select gender</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" class="form-control col-6 mb-4" id="department" th:field="*{department}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control col-6 mb-4" id="email" th:field="*{email}" required>
+        </div>
+        <div class="form-group">
+            <label for="cgpa">CGPA</label>
+            <input type="number" step="0.01" class="form-control col-6 mb-4" id="cgpa" th:field="*{cgpa}" required>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input type="date" class="form-control col-6 mb-4" id="dateOfBirth" th:field="*{date_of_birth}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm Update</button>
+    </form>
+    <hr/>
+    <a href="/api/student/showStudent" class="btn btn-secondary" role="button">Back to List</a>
+</div>
+</body>
+</html>

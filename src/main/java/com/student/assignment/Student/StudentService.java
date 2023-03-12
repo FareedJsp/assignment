@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -14,7 +13,6 @@ public class StudentService {
     
     private final StudentRepository studentRepository;
 
-    @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
@@ -23,10 +21,21 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public Student getStudentById(int studentId) {
+    Optional<Student> studentOptional = studentRepository.findById(studentId);
+    if (studentOptional.isEmpty()) {
+        throw new IllegalStateException("Student with id " + studentId + " does not exist");
+    }
+    return studentOptional.get();
+    }
+
     public void addNewStudent(Student student){
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()){
             throw new IllegalStateException("Email is already taken");
+        }
+        if (student.getCgpa() > 4.00) {
+            throw new IllegalArgumentException("Incorrect value");
         }
         studentRepository.save(student);
     }
