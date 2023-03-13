@@ -21,6 +21,10 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public List<Student> searchByKeyword(String keyword) {
+        return studentRepository.searchByKeyword(keyword);
+    }
+
     public Student getStudentById(int studentId) {
     Optional<Student> studentOptional = studentRepository.findById(studentId);
     if (studentOptional.isEmpty()) {

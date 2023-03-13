@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{front :: html_head}"></head>
+  <body>
+    <div class="main-wrapper">
+    <div th:replace="~{front :: header}"></div>
+    <div th:replace="~{front :: sidebar}"></div>
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Dashboard</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="breadcrumb mb-0 p-0 float-right">
+                            <li class="breadcrumb-item"><a href="/record/dashboard"><i class="fas fa-home"></i>Home</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="m">Project Information</h4>
+                    <div class="mt-3">
+                        <ul>
+                            <li>
+                                <h5>Another section of the student record can be accessed through the following link, which contains basic HTML:</h5>
+                                <a href="http://localhost:8080/api/student/showStudent"><h5>/api/student/showStudent</h5></a><hr/>
+                            </li>
+                            <li>
+                                <h5>The database was created using MySQL via the XAMPP application.</h5><hr/>
+                            </li>
+                            <li>
+                                <h5>The project was built using VSCode and Spring Boot, with Thymeleaf serving as the template engine.</h5><hr/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div th:replace="~{front :: javascript}"></div>
+  </body>
+</html>

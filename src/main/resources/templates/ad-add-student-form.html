@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{front :: html_head}">
+  </head>
+  <body>
+    <div class="main-wrapper">
+    <div th:replace="~{front :: header}"></div>
+    <div th:replace="~{front :: sidebar}"></div>
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Add Student</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="breadcrumb mb-0 p-0 float-right">
+                            <li class="breadcrumb-item"><a href="/record/dashboard"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><span>Add Student</span></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="page-content">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="card">
+                <div class="card-body">
+                <form id="form1" class="custom-mt-form" th:action="@{adAddStudent}" th:object="${student}" method="post">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <input type="date" class="form-control" id="dateOfBirth" th:field="*{date_of_birth}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender" th:field="*{gender}" required>
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <input type="text" class="form-control" id="department" th:field="*{department}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="cgpa">CGPA</label>
+                                <input type="number" step="0.01" class="form-control" id="cgpa" th:field="*{cgpa}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center m-t-20">
+                            <button id="submitBtn" class="btn btn-primary mr-2" type="submit">Submit</button>
+                    </div>
+                    </div>
+                </form>
+                </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div th:replace="~{front :: javascript}"></div>
+    <script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+    <script>
+        $(function() {
+           $('#submitBtn').click(function() {
+              $('#form1').submit();
+           });
+        });
+     </script>
+  </body>
+</html>
