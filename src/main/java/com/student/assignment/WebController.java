@@ -15,4 +15,9 @@ public class WebController {
         public String front() {
         return "front";
     }
+
+    @RequestMapping(value = "/author")
+        public String author() {
+        return "user";
+    }
 }

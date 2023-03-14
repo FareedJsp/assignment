@@ -26,7 +26,7 @@ public class AdvanceStudentController {
     }
 
     @GetMapping("/dashboard")
-    public ModelAndView dashboard(){
+        public ModelAndView dashboard(){
         ModelAndView mav = new ModelAndView("index.html");
         return mav;
     }
