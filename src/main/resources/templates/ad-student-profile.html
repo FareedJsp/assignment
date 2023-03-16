@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{front :: html_head}"></head>
+  <body>
+    <div class="main-wrapper">
+    <div th:replace="~{front :: header}"></div>
+    <div th:replace="~{front :: sidebar}"></div>
+    
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Author Info</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="breadcrumb mb-0 p-0 float-right">
+                            <li class="breadcrumb-item"><a href="/record/dashboard"><i class="fas fa-home"></i>Home</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="card-box m-b-0">
+                <div class="row">
+                <div class="col-md-12">
+                <div class="profile-view">
+                <div class="profile-img-wrap">
+                <div class="profile-img">
+                <a href=""><img class="avatar" th:src="@{/img/user.jpg}" alt=""></a>
+                </div>
+                </div>
+                <div class="profile-basic">
+                <div class="row">
+                <div class="col-md-5">
+                <div class="profile-info-left">
+                <h3 class="user-name m-t-0" th:text="${student.name}"></h3>
+                <h5 class="company-role m-t-0 m-b-0" th:text="${student.department}"></h5>
+                <div class="staff-id">
+                    <span class="label">CGPA: </span>
+                    <span class="value" th:text="${student.cgpa}"></span>
+                </div>
+                <div class="staff-id">
+                    <span class="label">Age: </span>
+                    <span class="value" th:text="${student.age}"></span>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-7">
+                <ul class="personal-info">
+                <li>
+                <span class="title">Phone:</span>
+                <span class="text"><a href="">011 0099 **88</a></span>
+                </li>
+                <li>
+                <span class="title">Email:</span>
+                <span class="text"><a href=""><span th:text="${student.email}"></span></a></span>
+                </li>
+                <li>
+                <span class="title">Birthday:</span>
+                <span class="text" th:text="${student.date_of_birth}"></span>
+                </li>
+                <li>
+                <span class="title">Address:</span>
+                <span class="text">Kepayan, KK, Sabah</span>
+                </li>
+                <li>
+                <span class="title">Gender:</span>
+                <span class="text" th:text="${student.gender}"></span>
+                </li>
+                </ul>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div th:replace="~{front :: javascript}"></div>
+  </body>
+</html>

@@ -65,6 +65,14 @@ public class AdvanceStudentController {
         return mav;
     }
 
+    @GetMapping("/showStudentDetail/{studentId}")
+    public ModelAndView showStudentDetail(@PathVariable("studentId") int studentId) {
+        ModelAndView mav = new ModelAndView("ad-student-profile");
+        Student student = studentService.getStudentById(studentId);
+        mav.addObject("student", student);
+        return mav;
+    }
+
     @GetMapping("/adAddStudentForm")
     public ModelAndView adAddStudentForm() {
         ModelAndView mav = new ModelAndView("ad-add-student-form");
